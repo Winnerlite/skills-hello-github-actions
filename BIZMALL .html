@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizmall - Your Online Shopping Destination</title>
+    <style>
+        /* Reset and base styles */
+        eset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fffbe6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+/* Sliding Menu */
+.sliding-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s ease;
+    padding-top: 60px;
+    z-index: 2000;
+}
+
+.sliding-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+
+.sliding-menu a:hover {
+    background-color: #575757;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 2100;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+        /* Header styles */
+        .top-bar {
+            background-color: #ffd700;
+            padding: 10px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info span {
+            margin-right: 20px;
+        }
+
+        .social-icons a {
+            margin-left: 10px;
+            color: #333;
+        }
+
+
+/* Top navigation bar styles */
+nav {
+    background-color: #f2db8e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex; /* Enable Flexbox for the nav container */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the logo vertically */
+    height: 100px; /* Adjust to your desired nav height */
+}
+
+.logo {
+    margin: 0 auto; /* Ensure the logo is centered within the nav */
+}
+
+.logo img {
+    height: 60px; /* Adjust the size of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation links styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+/* Active link indicator */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    nav .container {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #fff;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
+        /* Hero section styles */
+        .hero {
+            background-image: url('https://i.ibb.co/Gngzn99/moped-9300285.jpg" alt="moped-9300285" border="0"> width"10"');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ffd700;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ffea00;
+        }
+
+        /* Features section styles */
+        .features {
+            padding: 50px 0;
+            background-color: #fff8e1;
+            overflow: hidden;
+        }
+
+        .features h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .feature-carousel {
+            position: relative;
+        }
+
+        .feature-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .feature {
+            flex: 0 0 25%;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .feature-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Products section styles */
+products {
+    padding: 50px 0;
+    overflow: hidden;
+    /* You can change the overall section background here */
+    background-color: #fff; 
+}
+
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .product-carousel {
+            position: relative;
+        }
+
+        .product-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card {
+            flex: 0 0 calc(33.333% - 20px);
+            margin: 0 10px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff8e1;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .product-card button {
+            background-color: #ffd700;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #ffea00;
+        }
+
+        /* Shop by location styles */
+        .shop-by-location {
+            background-color: #f2db8e;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .shop-by-location h2 {
+            margin-bottom: 30px;
+        }
+
+        .location-selector {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .location-selector select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    /* Shop by Categories Section */
+.shop-by-categories {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.shop-by-categories h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+/* Categories Carousel */
+.categories-carousel {
+    overflow: hidden; /* Ensures only one row is visible */
+    position: relative;
+    max-width: 100%;
+}
+
+.categories-grid {
+    display: flex; /* Align items in a row */
+    gap: 20px;
+    animation: scroll-horizontal 20s linear infinite;
+    width: max-content; /* Ensures grid resizes dynamically */
+}
+
+/* Individual Category Icons */
+.categories-grid img {
+    width: 70px; /* Adjust size as needed */
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%; /* Optional: make icons circular */
+    background-color: #fff; /* Optional: add background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: add shadow */
+    transition: transform 0.3s ease;
+}
+
+.categories-grid img:hover {
+    transform: scale(1.1);
+}
+
+/* Scrolling animation */
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% + 100vw));
+    }
+}
+
+        /* Customer reviews styles */
+        .customer-reviews {
+            background-color: #fff8e1;
+            padding: 50px 0;
+            overflow: hidden;
+        }
+
+        .customer-reviews h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .reviews-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .review {
+            flex: 0 0 100%;
+            padding: 20px;
+            background-color: #fff8e1;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .review img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ styles */
+        .faq {
+            padding: 50px 0;
+            background-color: #fff8e1;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-question::after {
+            content: '\25BC';
+            float: right;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #4e4646;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            flex-basis: 30%;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .features .container {
+                flex-direction: column;
+            }
+
+            .feature {
+                margin-bottom: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                margin-bottom: 30px;
+            }
+
+            .location-selector {
+                flex-direction: column;
+            }
+        }
+    /* Features Section (Auto-Scrolling Images) */
+.services-carousel {
+    overflow: hidden; /* Ensures no extra images are visible */
+    position: relative;
+    max-width: 100%; /* Stretches to container width */
+}
+
+.services-grid {
+    display: flex; /* Arranges images in a row */
+    gap: 20px; /* Space between images */
+    animation: scroll-horizontal 20s linear infinite; /* Smooth scrolling effect */
+    width: max-content; /* Adjusts grid size to fit images */
+}
+
+.services-grid img {
+    width: 300px; /* Image dimensions */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease; /* Smooth hover scaling */
+}
+
+.services-grid img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Keyframes for Scrolling Animation */
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% + 100vw));
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .services-grid img {
+        width: 250px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-grid img {
+        width: 200px;
+        height: 130px;
+    }
+}
+    
+    Quick Links section specific styles */
+.footer-section.quick-links {
+    flex-basis: 100%;  /* Make it full width */
+    text-align: center;
+}
+
+.footer-section.quick-links h3 {
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+.footer-section.quick-links ul {
+    list-style: none;
+    display: flex;  /* Make list horizontal */
+    justify-content: center;  /* Center the links */
+    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+    gap: 30px;  /* Space between links */
+    padding: 0;
+}
+
+.footer-section.quick-links ul li {
+    margin: 0;  /* Remove default margins */
+}
+
+.footer-section.quick-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 16px;
+    padding: 5px 10px;
+    position: relative;
+}
+
+/* Hover effect */
+.footer-section.quick-links a:hover {
+    color: #ffd700;
+}
+    /* Top Bar with News Ticker */
+.top-bar {
+    background-color: #ffd700;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.news-ticker {
+    display: flex;
+    animation: moveText 15s linear infinite;
+    white-space: nowrap;
+}
+
+.news-ticker span {
+    color: #333;
+    font-weight: bold;
+    padding: 0 50px;
+}
+
+/* Keyframes for Moving Text */
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Sliding Menu -->
+<div class="sliding-menu" id="slidingMenu">
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#documentation">Documentation</a>
+    <a href="#private-policy">Private Policy</a>
+    <a href="#sign-out">Sign Out</a>
+</div>
+
+<!-- Menu Toggle Button -->
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        
+       <div class="top-bar">
+    <div class="news-ticker">
+        <span>Welcome to Bizmall! Enjoy our New Year offers! | Free shipping on orders above ₦50,000! | Sign up now for exclusive deals!</span>
+    </div>
+</div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <img src="https://i.ibb.co/Z6mNSW5/Background-Eraser-20250102-115334248.png" alt="Background-Eraser-20250102-115334248" border="0">    </div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Happy New Year From<b>Bizmall</b></b></i></p></h1>
+                <p><i>What do you need today?</i></p>
+                <a href="#" class="cta-button">Browse Shops</a>
+            </div>
+        </section>
+
+        <section class="features">
+    <div class="container">
+        <h2>Featured Brands</h2>
+        <div class="services-carousel">
+            <div class="services-grid">
+                <!-- Replace these with your image URLs -->
+                <<img src="https://i.ibb.co/vQJRVFv/Background-Eraser-20250104-122242647.png" alt="Background-Eraser-20250104-122242647" border="0"> 
+                    <img src="https://i.ibb.co/bQ9mmLh/Background-Eraser-20250104-120503408.png" alt="Background-Eraser-20250104-120503408" border="0" /></a>    
+                <img src="https://i.ibb.co/p0WZYFv/Background-Eraser-20250104-122118153.png" alt="Background-Eraser-20250104-122118153" border="0">     <img src="https://i.ibb.co/8MrsWTs/Background-Eraser-20250104-122615281.png" alt="Background-Eraser-20250104-122615281" border="0">  </div>
+    </div>
+</section>
+
+        <section class="products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="product-carousel">
+                    <div class="product-grid">
+                        <!-- Product items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="shop-by-location">
+            <div class="container">
+                <h2>Shop by Location</h2>
+                <div class="location-selector">
+                    <select id="state">
+                        <option value="">Select State</option>
+                        <option value="lagos">Lagos</option>
+                        <option value="abuja">Abuja</option>
+                        <option value="kano">Kano</option>
+                        <!-- Add more states as needed -->
+                    </select>
+                    <select id="city">
+                        <option value="">Select City</option>
+                        <!-- Cities will be populated based on the selected state -->
+                    </select>
+                    <select id="address">
+                        <option value="">Select Address</option>
+                        <!-- Addresses will be populated based on the selected city -->
+                    </select>
+                </div>
+                <button class="cta-button">Find Stores</button>
+            </div>
+        </section>
+        
+        <section class="shop-by-categories">
+    <div class="container">
+        <h2>Shop by Categories</h2>
+        <div class="categories-carousel">
+            <div class="categories-grid">
+                <!-- Technology category icons -->
+                <img src="https://cdn-icons-png.flaticon.com/512/3021/3021652.png" alt="Laptops">
+                <img src="https://cdn-icons-png.flaticon.com/512/858/858126.png" alt="Mobile Phones">
+                <img src="https://cdn-icons-png.flaticon.com/512/135/135620.png" alt="Cameras">
+                <img src="https://cdn-icons-png.flaticon.com/512/2946/2946706.png" alt="Smart Watches">
+                <img src="https://cdn-icons-png.flaticon.com/512/1023/1023656.png" alt="Accessories">
+                <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Headphones">
+                <img src="https://cdn-icons-png.flaticon.com/512/2875/2875434.png" alt="Tablets">
+                <img src="https://cdn-icons-png.flaticon.com/512/1183/1183672.png" alt="Gaming Consoles">
+                <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="Printers">
+                <img src="https://cdn-icons-png.flaticon.com/512/1006/1006160.png" alt="Smart TVs">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section class="customer-reviews">
+            <div class="container">
+                <h2>Customer Reviews</h2>
+                <div class="reviews-container">
+                    <div class="review">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="John Doe">
+                        <p>"Great products and excellent service! I highly recommend Bizmall for all business needs."</p>
+                        <p><strong>- Winner</strong></p>
+                    </div>
+                    <div class="review">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Jane Smith">
+                        <p>"Bizmall has transformed the way I run my business. Their solutions are top-notch!"</p>
+                        <p><strong>- Gina orukpe</strong></p>
+                    </div>
+                    <div class="review">
+                        <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Mike Johnson">
+                        <p>"The variety of products available at Bizmall is impressive. I always find what I need."</p>
+                        <p><strong>- Mike Johnson</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">How do I place an order on Bizmall?</button>
+                        <div class="faq-answer">
+                            <p>To place an order, simply browse our products, add items to your cart, and proceed to checkout. Follow the prompts to enter your shipping and payment information.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What payment methods do you accept?</button>
+                        <div class="faq-answer">
+                            <p>We accept various payment methods including credit/debit cards, bank transfers, and mobile payment solutions. You can view all available options at checkout.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How long does shipping take?</button>
+                        <div class="faq-answer">
+                            <p>Shipping times vary depending on your location and the product. Generally, orders are processed within 1-2 business days, and shipping can take 3-7 business days within Nigeria.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Do you offer international shipping?</button>
+                        <div class="faq-answer">
+                            <p>Currently, we only ship within Nigeria. We're working on expanding our services to other countries in the future.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <!-- New Logo Section -->
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/Z6mNSW5/Background-Eraser-20250102-115334248.png" alt="Background-Eraser-20250102-115334248" border="0" width="159"> 
+                <p><i>Your one-stop shop for business solutions</p>
+                                    <p><b>Bizmall</b> <i> is your trusted partner for all your business needs.</i></p>
+         
+            </div>
+            
+            <div class="footer-section">
+                <h3></h3>
+                <p></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <Ii><a href="#">Home</a></ii>
+                    
+                    <Ii><a href="#">About Us</a></ii>
+                    <ii><a href="#">Services</a></ii>
+                    <ii><a href="#">Contact</a></ii>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@bizmall.com.ng</p>
+                <p>Phone: +234 803 453 4556</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 ©Bizmall. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Sample product data
+        const products = [
+            { name: 'Sleek Phone', price: '₦150,000', image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+            { name: 'iPad Pro', price: '₦350,000', image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+            { name: 'Apple Watch', price: '₦120,000', image: 'https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+            { name: 'Wireless Earbuds', price: '₦45,000', image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+            { name: 'Smart Speaker', price: '₦80,000', image: 'https://images.unsplash.com/photo-1543512214-318c7553f230?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+            { name: 'Fitness Tracker', price: '₦35,000', image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80' },
+        ];
+        
+        function toggleMenu() {
+    const menu = document.getElementById('slidingMenu');
+    if (menu.style.left === '0px') {
+        menu.style.left = '-250px'; // Hide the menu
+    } else {
+        menu.style.left = '0px'; // Show the menu
+    }
+}
+
+        // Function to create product cards
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.classList.add('product-card');
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.price}</p>
+                <button>Add to Cart</button>
+            `;
+            return card;
+        }
+
+        // Function to populate product grid
+        function populateProductGrid() {
+            const productGrid = document.querySelector('.product-grid');
+            products.forEach(product => {
+                const card = createProductCard(product);
+                productGrid.appendChild(card);
+            });
+        }
+
+        // Function to scroll products
+        function scrollProducts() {
+            const productGrid = document.querySelector('.product-grid');
+            const productCards = document.querySelectorAll('.product-card');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % (productCards.length - 2);
+                productGrid.style.transform = `translateX(-${currentIndex * (100 / 3)}%)`;
+            }, 5000); // Change product every 5 seconds
+        }
+
+        // Function to populate city dropdown based on selected state
+        function populateCities() {
+            const state = document.getElementById('state').value;
+            const citySelect = document.getElementById('city');
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            if (state === 'lagos') {
+                const lagosCity = ['Ikeja', 'Lekki', 'Surulere'];
+                lagosCity.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.toLowerCase();
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            } else if (state === 'abuja') {
+                const abujaCity = ['Garki', 'Wuse', 'Maitama'];
+                abujaCity.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.toLowerCase();
+                    option.textContent = city;
+                    citySelect.appendChild(option);
+                });
+            }
+            // Add more states and cities as needed
+        }
+
+        // Function to populate address dropdown based on selected city
+        function populateAddresses() {
+            const city = document.getElementById('city').value;
+            const addressSelect = document.getElementById('address');
+            addressSelect.innerHTML = '<option value="">Select Address</option>';
+
+            // This is a simplified example. In a real application, you would fetch addresses from a database.
+            const addresses = [
+                '123 Main St',
+                '456 Oak Ave',
+                '789 Pine Rd'
+            ];
+
+            addresses.forEach(address => {
+                const option = document.createElement('option');
+                option.value = address.toLowerCase().replace(/\s/g, '-');
+                option.textContent = address;
+                addressSelect.appendChild(option);
+            });
+        }
+
+    
+        // Auto-scrolling customer reviews
+        function scrollReviews() {
+            const reviewsContainer = document.querySelector('.reviews-container');
+            const reviews = document.querySelectorAll('.review');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % reviews.length;
+                reviewsContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }, 5000); // Change review every 5 seconds
+        }
+
+        // Function to scroll features
+        function scrollFeatures() {
+            const featureGrid = document.querySelector('.feature-grid');
+            const features = document.querySelectorAll('.feature');
+            let currentIndex = 0;
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % features.length;
+                featureGrid.style.transform = `translateX(-${currentIndex * 25}%)`;
+            }, 5000); // Change feature every 5 seconds
+        }
+
+        // Function to initialize FAQ
+        function initFAQ() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+
+                    // Close all other answers
+                    document.querySelectorAll('.faq-question.active').forEach(activeQuestion => {
+                        if (activeQuestion !== question) {
+                            activeQuestion.classList.remove('active');
+                            activeQuestion.nextElementSibling.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current answer
+                    question.classList.toggle('active', !isActive);
+                    answer.classList.toggle('active', !isActive);
+                });
+            });
+        }
+
+        // Call the functions when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            populateProductGrid();
+            scrollProducts();
+            scrollReviews();
+            scrollFeatures();
+            initFAQ();
+        });
+
+        // Add event listeners for dropdown changes
+        document.getElementById('state').addEventListener('change', populateCities);
+        document.getElementById('city').addEventListener('change', populateAddresses);
+    
+    
+    document.addEventListener('DOMContentLoaded', () => {
+    const categoriesGrid = document.querySelector('.categories-grid');
+
+    // Clone items to ensure seamless infinite scrolling
+    const cloneCount = Math.ceil(window.innerWidth / 70); // Number of icons needed to fill the screen
+    for (let i = 0; i < cloneCount; i++) {
+        const clone = categoriesGrid.children[i % categoriesGrid.children.length].cloneNode(true);
+        categoriesGrid.appendChild(clone);
+    }
+});
+
+    </script>
+</body>
+</html>
